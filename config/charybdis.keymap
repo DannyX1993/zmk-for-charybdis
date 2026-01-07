@@ -23,7 +23,7 @@
                                      &kp LGUI  &kp SPACE  &none       &kp LALT   &none
                                                &mkp MB1   &mkp MB2    &kp ENTER
             >;
-
+            trackball-bindings = <&tmv_coarse>;
             label = "DVORAK";
         };
 
