@@ -12,15 +12,26 @@
 
 / {
     behaviors {
-        HOLD_TOG_TAP: HOLD_TOG_TAP {
+        HOLD_TO_TAP: HOLD_TO_TAP {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOLD_TOG_TAP";
-            bindings = <&tog>, <&kp>;
+            label = "HOLD_TO_TAP";
+            bindings = <&to>, <&kp>;
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             quick-tap-ms = <150>;
-            flavor = "balanced";
+            flavor = "hold-preferred";
+        };
+
+        COPY_PASTE: COPY_PASTE {
+            compatible = "zmk,behavior-hold-tap";
+            label = "COPY_PASTE";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            flavor = "tap-preferred";
         };
     };
 
@@ -29,11 +40,11 @@
 
         DVORAK {
             bindings = <
-&kp ESC         &none     &none      &none     &none      &none       &none      &none  &none  &none  &none  &HOLD_TOG_TAP 1 BACKSPACE
-&kp TAB         &kp SQT   &kp COMMA  &kp DOT   &kp P      &kp Y       &kp F      &kp G  &kp C  &kp R  &kp L  &kp LS(N1)
-&kt LEFT_SHIFT  &kp A     &kp O      &kp E     &kp U      &kp I       &kp D      &kp H  &kp T  &kp N  &kp S  &kp LS(N0)
-&kp LCTRL       &kp SEMI  &kp Q      &kp J     &kp K      &kp X       &kp B      &kp M  &kp W  &kp V  &kp Z  &kp QMARK
-                                     &kp LGUI  &kp SPACE  &none       &kp LALT   &none
+&kp ESC         &none     &none      &none     &none      &none       &none      &none                    &none  &none  &none  &HOLD_TO_TAP 1 BACKSPACE
+&kp TAB         &kp SQT   &kp COMMA  &kp DOT   &kp P      &kp Y       &kp F      &kp G                    &kp C  &kp R  &kp L  &kp LS(N1)
+&kt LEFT_SHIFT  &kp A     &kp O      &kp E     &kp U      &kp I       &kp D      &kp H                    &kp T  &kp N  &kp S  &kp LS(N0)
+&kp LCTRL       &kp SEMI  &kp Q      &kp J     &kp K      &kp X       &kp B      &kp M                    &kp W  &kp V  &kp Z  &kp QMARK
+                                     &kp LGUI  &kp SPACE  &none       &kp LALT   &COPY_PASTE LC(V) LC(C)
                                                &mkp MB1   &mkp MB2    &kp ENTER
             >;
 
@@ -43,9 +54,9 @@
 
         QWERTY {
             bindings = <
-&kp ESC         &kp N1  &kp N2  &kp N3        &kp N4     &kp N5      &kp N6     &kp N7     &kp N8     &kp N9            &kp N0    &HOLD_TOG_TAP 0 BACKSPACE
+&kp ESC         &kp N1  &kp N2  &kp N3        &kp N4     &kp N5      &kp N6     &kp N7     &kp N8     &kp N9            &kp N0    &HOLD_TO_TAP 0 BACKSPACE
 &kp TAB         &kp Q   &kp W   &kp E         &kp R      &kp T       &kp Y      &kp U      &kp I      &kp O             &kp P     &kp BSLH
-&kp LEFT_SHIFT  &kp A   &kp S   &kp D         &kp F      &kp G       &kp H      &kp J      &kp K      &kp L             &kp SEMI  &kp SQT
+&kt LEFT_SHIFT  &kp A   &kp S   &kp D         &kp F      &kp G       &kp H      &kp J      &kp K      &kp L             &kp SEMI  &kp SQT
 &kp LCTRL       &kp Z   &kp X   &kp C         &kp V      &kp B       &kp N      &kp M      &kp COMMA  &kp LEFT_BRACKET  &kp FSLH  &kp MINUS
                                 &kp LEFT_WIN  &kp SPACE  &mo 2       &kp LALT   &kp GRAVE
                                               &mkp MB1   &mkp MB2    &kp ENTER
