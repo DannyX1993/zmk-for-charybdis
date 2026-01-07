@@ -94,6 +94,42 @@
             #binding-cells = <0>;
             bindings = <&kp SEMICOLON>, <&kp COLON>;
         };
+
+        DOBLE_TECLA_PARENTH: DOBLE_TECLA_PARENTH {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DOBLE_TECLA_PARENTH";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_PARENTHESIS>, <&kp RIGHT_PARENTHESIS>;
+
+            tapping-term-ms = <200>;
+        };
+
+        DOBLE_TECLA_BRACE: DOBLE_TECLA_BRACE {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DOBLE_TECLA_BRACE";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_BRACE>, <&kp RIGHT_BRACE>;
+
+            tapping-term-ms = <200>;
+        };
+
+        DOBLE_TECLA_BRACKET: DOBLE_TECLA_BRACKET {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DOBLE_TECLA_BRACKET";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_BRACKET>, <&kp RIGHT_BRACKET>;
+
+            tapping-term-ms = <200>;
+        };
+
+        DOBLE_TECLA_LT: DOBLE_TECLA_LT {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DOBLE_TECLA_LT";
+            #binding-cells = <0>;
+            bindings = <&kp LESS_THAN>, <&kp GREATER_THAN>;
+
+            tapping-term-ms = <200>;
+        };
     };
 
     macros {
@@ -173,12 +209,12 @@
 
         SYMBOLS {
             bindings = <
-&trans            &trans             &trans          &trans           &trans                &trans                   &trans  &trans  &trans  &trans  &trans  &trans
-&kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS    &trans  &kp N7  &kp N8  &kp N9  &trans  &trans
-&trans            &kp PERCENT        &kp FSLH        &kp ASTERISK     &kp MINUS             &kp PLUS                 &trans  &kp N4  &kp N5  &kp N6  &trans  &trans
-&trans            &kp HASH           &kp DOLLAR      &kp PIPE         &kp AMPS              &kp AT_SIGN              &trans  &kp N1  &kp N2  &kp N3  &trans  &trans
-                                                     &trans           &trans                &trans                   &trans  &trans
-                                                                      &trans                &trans                   &trans
+&trans  &trans           &trans              &trans                &trans                &trans         &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &DOBLE_TECLA_LT  &DOBLE_TECLA_BRACE  &DOBLE_TECLA_BRACKET  &DOBLE_TECLA_PARENTH  &trans         &trans  &kp N7  &kp N8  &kp N9  &trans  &trans
+&trans  &kp PERCENT      &kp FSLH            &kp ASTERISK          &kp MINUS             &kp PLUS       &trans  &kp N4  &kp N5  &kp N6  &trans  &trans
+&trans  &kp HASH         &kp DOLLAR          &kp PIPE              &kp AMPS              &kp AT_SIGN    &trans  &kp N1  &kp N2  &kp N3  &trans  &trans
+                                             &trans                &trans                &trans         &trans  &trans
+                                                                   &trans                &trans         &trans
             >;
         };
 
