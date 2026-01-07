@@ -33,6 +33,111 @@
             quick-tap-ms = <150>;
             flavor = "tap-preferred";
         };
+
+        DOBLE_TECLA_A: DOBLE_TECLA_A {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DOBLE_TECLA_A";
+            #binding-cells = <0>;
+            bindings = <&kp A>, <&A_ACENTUADA>;
+
+            tapping-term-ms = <200>;
+        };
+
+        DOBLE_TECLA_E: DOBLE_TECLA_E {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DOBLE_TECLA_E";
+            #binding-cells = <0>;
+            bindings = <&kp E>, <&E_ACENTUADA>;
+
+            tapping-term-ms = <200>;
+        };
+
+        DOBLE_TECLA_I: DOBLE_TECLA_I {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DOBLE_TECLA_I";
+            #binding-cells = <0>;
+            bindings = <&kp I>, <&I_ACENTUADA>;
+
+            tapping-term-ms = <200>;
+        };
+
+        DOBLE_TECLA_O: DOBLE_TECLA_O {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DOBLE_TECLA_O";
+            #binding-cells = <0>;
+            bindings = <&kp O>, <&O_ACENTUADA>;
+
+            tapping-term-ms = <200>;
+        };
+
+        DOBLE_TECLA_U: DOBLE_TECLA_U {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DOBLE_TECLA_U";
+            #binding-cells = <0>;
+            bindings = <&kp U>, <&U_ACENTUADA>;
+
+            tapping-term-ms = <200>;
+        };
+
+        DOBLE_TECLA_N: DOBLE_TECLA_N {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DOBLE_TECLA_N";
+            #binding-cells = <0>;
+            bindings = <&kp N>, <&N_ACENTUADA>;
+
+            tapping-term-ms = <200>;
+        };
+
+        DOBLE_TECLA_SEMICOLON: DOBLE_TECLA_SEMICOLON {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DOBLE_TECLA_SEMICOLON";
+            #binding-cells = <0>;
+            bindings = <&kp SEMICOLON>, <&kp COLON>;
+        };
+    };
+
+    macros {
+        A_ACENTUADA: A_ACENTUADA {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SQT &kp A>;
+            label = "A_ACENTUADA";
+        };
+
+        E_ACENTUADA: E_ACENTUADA {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SQT &kp E>;
+            label = "E_ACENTUADA";
+        };
+
+        I_ACENTUADA: I_ACENTUADA {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SQT &kp I>;
+            label = "I_ACENTUADA";
+        };
+
+        O_ACENTUADA: O_ACENTUADA {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SQT &kp O>;
+            label = "O_ACENTUADA";
+        };
+
+        U_ACENTUADA: U_ACENTUADA {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SQT &kp U>;
+            label = "U_ACENTUADA";
+        };
+
+        N_ACENTUADA: N_ACENTUADA {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SQT &kp N>;
+            label = "N_ACENTUADA";
+        };
     };
 
     keymap {
@@ -40,12 +145,12 @@
 
         DVORAK {
             bindings = <
-&kp ESC         &none     &none      &none     &none      &none       &none      &none                    &none  &none  &none  &HOLD_TO_TAP 1 BACKSPACE
-&kp TAB         &kp SQT   &kp COMMA  &kp DOT   &kp P      &kp Y       &kp F      &kp G                    &kp C  &kp R  &kp L  &kp LS(N1)
-&kt LEFT_SHIFT  &kp A     &kp O      &kp E     &kp U      &kp I       &kp D      &kp H                    &kp T  &kp N  &kp S  &kp LS(N0)
-&kp LCTRL       &kp SEMI  &kp Q      &kp J     &kp K      &kp X       &kp B      &kp M                    &kp W  &kp V  &kp Z  &kp QMARK
-                                     &kp LGUI  &kp SPACE  &none       &kp LALT   &COPY_PASTE LC(V) LC(C)
-                                               &mkp MB1   &mkp MB2    &kp ENTER
+&kp ESC         &none                   &none           &none           &none           &none             &none      &none                    &none  &none           &to 1  &kp BACKSPACE
+&kp TAB         &kp SQT                 &kp COMMA       &kp DOT         &kp P           &kp Y             &kp F      &kp G                    &kp C  &kp R           &kp L  &kp LS(N1)
+&kt LEFT_SHIFT  &DOBLE_TECLA_A          &DOBLE_TECLA_O  &DOBLE_TECLA_E  &DOBLE_TECLA_U  &DOBLE_TECLA_I    &kp D      &kp H                    &kp T  &DOBLE_TECLA_N  &kp S  &kp LS(N0)
+&kp LEFT_GUI    &DOBLE_TECLA_SEMICOLON  &kp Q           &kp J           &kp K           &kp X             &kp B      &kp M                    &kp W  &kp V           &kp Z  &kp LS(SLASH)
+                                                        &kp LCTRL       &kp SPACE       &mo 2             &kp LALT   &COPY_PASTE LC(V) LC(C)
+                                                                        &mkp MB1        &mkp MB2          &kp ENTER
             >;
 
             trackball-bindings = <&tmv_coarse>;
@@ -54,16 +159,27 @@
 
         QWERTY {
             bindings = <
-&kp ESC         &kp N1  &kp N2  &kp N3        &kp N4     &kp N5      &kp N6     &kp N7     &kp N8     &kp N9            &kp N0    &HOLD_TO_TAP 0 BACKSPACE
-&kp TAB         &kp Q   &kp W   &kp E         &kp R      &kp T       &kp Y      &kp U      &kp I      &kp O             &kp P     &kp BSLH
-&kt LEFT_SHIFT  &kp A   &kp S   &kp D         &kp F      &kp G       &kp H      &kp J      &kp K      &kp L             &kp SEMI  &kp SQT
-&kp LCTRL       &kp Z   &kp X   &kp C         &kp V      &kp B       &kp N      &kp M      &kp COMMA  &kp LEFT_BRACKET  &kp FSLH  &kp MINUS
-                                &kp LEFT_WIN  &kp SPACE  &mo 2       &kp LALT   &kp GRAVE
-                                              &mkp MB1   &mkp MB2    &kp ENTER
+&kp ESC         &kp N1          &kp N2  &kp N3          &kp N4     &kp N5      &kp N6          &kp N7          &kp N8          &kp N9            &to 0                   &kp BACKSPACE
+&kp TAB         &kp Q           &kp W   &DOBLE_TECLA_E  &kp R      &kp T       &kp Y           &DOBLE_TECLA_U  &DOBLE_TECLA_I  &DOBLE_TECLA_O    &kp P                   &kp BSLH
+&kt LEFT_SHIFT  &DOBLE_TECLA_A  &kp S   &kp D           &kp F      &kp G       &kp H           &kp J           &kp K           &kp L             &DOBLE_TECLA_SEMICOLON  &kp SQT
+&kp LEFT_GUI    &kp Z           &kp X   &kp C           &kp V      &kp B       &DOBLE_TECLA_N  &kp M           &kp COMMA       &kp LEFT_BRACKET  &kp FSLH                &kp MINUS
+                                        &kp LCTRL       &kp SPACE  &mo 3       &kp LALT        &kp GRAVE
+                                                        &mkp MB1   &mkp MB2    &kp ENTER
             >;
 
             trackball-bindings = <&tmv_coarse>;
             label = "QWERTY";
+        };
+
+        SYMBOLS {
+            bindings = <
+&trans            &trans             &trans          &trans           &trans                &trans                   &trans  &trans  &trans  &trans  &trans  &trans
+&kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS    &trans  &kp N7  &kp N8  &kp N9  &trans  &trans
+&trans            &kp PERCENT        &kp FSLH        &kp ASTERISK     &kp MINUS             &kp PLUS                 &trans  &kp N4  &kp N5  &kp N6  &trans  &trans
+&trans            &kp HASH           &kp DOLLAR      &kp PIPE         &kp AMPS              &kp AT_SIGN              &trans  &kp N1  &kp N2  &kp N3  &trans  &trans
+                                                     &trans           &trans                &trans                   &trans  &trans
+                                                                      &trans                &trans                   &trans
+            >;
         };
 
         layer_1 {
