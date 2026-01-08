@@ -183,11 +183,11 @@
 
         DVORAK {
             bindings = <
-&kp ESC         &none                   &none           &none           &none           &none             &none      &none                    &none  &none           &to 1  &kp BACKSPACE
-&kp TAB         &kp SQT                 &kp COMMA       &kp DOT         &kp P           &kp Y             &kp F      &kp G                    &kp C  &kp R           &kp L  &kp LS(N1)
-&kt LEFT_SHIFT  &DOBLE_TECLA_A          &DOBLE_TECLA_O  &DOBLE_TECLA_E  &DOBLE_TECLA_U  &DOBLE_TECLA_I    &kp D      &kp H                    &kp T  &DOBLE_TECLA_N  &kp S  &kp LS(N0)
-&kp LEFT_GUI    &DOBLE_TECLA_SEMICOLON  &kp Q           &kp J           &kp K           &kp X             &kp B      &kp M                    &kp W  &kp V           &kp Z  &kp LS(SLASH)
-                                                        &kp LCTRL       &kp SPACE       &mo 2             &kp LALT   &COPY_PASTE LC(V) LC(C)
+&kp ESC         &none                   &none           &none           &none           &none             &to 1      &none  &none  &none           &trans  &kp BACKSPACE
+&kp TAB         &kp SQT                 &kp COMMA       &kp DOT         &kp P           &kp Y             &kp F      &kp G  &kp C  &kp R           &kp L   &kp LS(N1)
+&kt LEFT_SHIFT  &DOBLE_TECLA_A          &DOBLE_TECLA_O  &DOBLE_TECLA_E  &DOBLE_TECLA_U  &DOBLE_TECLA_I    &kp D      &kp H  &kp T  &DOBLE_TECLA_N  &kp S   &kp LS(N0)
+&kp LEFT_GUI    &DOBLE_TECLA_SEMICOLON  &kp Q           &kp J           &kp K           &kp X             &kp B      &kp M  &kp W  &kp V           &kp Z   &kp LS(SLASH)
+                                                        &kp LCTRL       &kp SPACE       &mo 2             &kp LALT   &none
                                                                         &mkp MB1        &mkp MB2          &kp ENTER
             >;
 
@@ -211,11 +211,11 @@
 
         SYMBOLS {
             bindings = <
-&trans          &trans           &trans              &trans                 &trans                &trans               &trans  &trans  &trans  &trans  &trans  &trans
-&trans          &DOBLE_TECLA_LT  &DOBLE_TECLA_BRACE  &DOBLE_TECLA_BRACKET   &DOBLE_TECLA_PARENTH  &trans               &trans  &kp N7  &kp N8  &kp N9  &trans  &trans
-&sk LEFT_SHIFT  &kp PERCENT      &kp LS(N7)          &kp LS(RIGHT_BRACKET)  &kp SLASH             &kp RIGHT_BRACKET    &trans  &kp N4  &kp N5  &kp N6  &trans  &trans
-&trans          &kp NON_US_HASH  &kp LS(N4)          &kp RA(N1)             &kp LS(N6)            &kp RA(Q)            &trans  &kp N1  &kp N2  &kp N3  &trans  &trans
-                                                     &trans                 &trans                &trans               &trans  &trans
+&trans          &trans           &trans              &trans                 &trans                &trans               &trans                   &trans  &trans  &trans  &trans  &trans
+&trans          &DOBLE_TECLA_LT  &DOBLE_TECLA_BRACE  &DOBLE_TECLA_BRACKET   &DOBLE_TECLA_PARENTH  &trans               &trans                   &kp N7  &kp N8  &kp N9  &trans  &trans
+&sk LEFT_SHIFT  &kp PERCENT      &kp LS(N7)          &kp LS(RIGHT_BRACKET)  &kp SLASH             &kp RIGHT_BRACKET    &trans                   &kp N4  &kp N5  &kp N6  &trans  &trans
+&trans          &kp NON_US_HASH  &kp LS(N4)          &kp RA(N1)             &kp LS(N6)            &kp RA(Q)            &COPY_PASTE LC(V) LS(C)  &kp N1  &kp N2  &kp N3  &trans  &trans
+                                                     &trans                 &trans                &trans               &trans                   &trans
                                                                             &trans                &trans               &trans
             >;
 
