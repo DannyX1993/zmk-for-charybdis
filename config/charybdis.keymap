@@ -40,7 +40,7 @@
             #binding-cells = <0>;
             bindings = <&kp A>, <&A_ACENTUADA>;
 
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
         };
 
         DOBLE_TECLA_E: DOBLE_TECLA_E {
@@ -49,7 +49,7 @@
             #binding-cells = <0>;
             bindings = <&kp E>, <&E_ACENTUADA>;
 
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
         };
 
         DOBLE_TECLA_I: DOBLE_TECLA_I {
@@ -58,7 +58,7 @@
             #binding-cells = <0>;
             bindings = <&kp I>, <&I_ACENTUADA>;
 
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
         };
 
         DOBLE_TECLA_O: DOBLE_TECLA_O {
@@ -67,7 +67,7 @@
             #binding-cells = <0>;
             bindings = <&kp O>, <&O_ACENTUADA>;
 
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
         };
 
         DOBLE_TECLA_U: DOBLE_TECLA_U {
@@ -76,7 +76,7 @@
             #binding-cells = <0>;
             bindings = <&kp U>, <&U_ACENTUADA>;
 
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
         };
 
         DOBLE_TECLA_N: DOBLE_TECLA_N {
@@ -85,7 +85,7 @@
             #binding-cells = <0>;
             bindings = <&kp N>, <&N_ACENTUADA>;
 
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
         };
 
         DOBLE_TECLA_SEMICOLON: DOBLE_TECLA_SEMICOLON {
@@ -93,13 +93,15 @@
             label = "DOBLE_TECLA_SEMICOLON";
             #binding-cells = <0>;
             bindings = <&kp SEMICOLON>, <&kp COLON>;
+
+            tapping-term-ms = <150>;
         };
 
         DOBLE_TECLA_PARENTH: DOBLE_TECLA_PARENTH {
             compatible = "zmk,behavior-tap-dance";
             label = "DOBLE_TECLA_PARENTH";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_PARENTHESIS>, <&kp RIGHT_PARENTHESIS>;
+            bindings = <&kp LS(N8)>, <&kp LS(N9)>;
 
             tapping-term-ms = <200>;
         };
@@ -108,7 +110,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "DOBLE_TECLA_BRACE";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_BRACE>, <&kp RIGHT_BRACE>;
+            bindings = <&kp RA(SQT)>, <&kp RA(BACKSLASH)>;
 
             tapping-term-ms = <200>;
         };
@@ -117,7 +119,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "DOBLE_TECLA_BRACKET";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_BRACKET>, <&kp RIGHT_BRACKET>;
+            bindings = <&kp RA(LEFT_BRACKET)>, <&kp RA(RIGHT_BRACKET)>;
 
             tapping-term-ms = <200>;
         };
@@ -126,7 +128,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "DOBLE_TECLA_LT";
             #binding-cells = <0>;
-            bindings = <&kp LESS_THAN>, <&kp GREATER_THAN>;
+            bindings = <&kp NON_US_BACKSLASH>, <&kp LS(NON_US_BACKSLASH)>;
 
             tapping-term-ms = <200>;
         };
@@ -209,12 +211,12 @@
 
         SYMBOLS {
             bindings = <
-&trans          &trans           &trans              &trans                &trans                &trans         &trans  &trans  &trans  &trans  &trans  &trans
-&trans          &DOBLE_TECLA_LT  &DOBLE_TECLA_BRACE  &DOBLE_TECLA_BRACKET  &DOBLE_TECLA_PARENTH  &trans         &trans  &kp N7  &kp N8  &kp N9  &trans  &trans
-&sk LEFT_SHIFT  &kp PERCENT      &kp SLASH           &kp KP_ASTERISK       &kp KP_SUBTRACT       &kp KP_PLUS    &trans  &kp N4  &kp N5  &kp N6  &trans  &trans
-&trans          &kp NON_US_HASH  &kp DOLLAR          &kp PIPE2             &kp AMPERSAND         &kp AT         &trans  &kp N1  &kp N2  &kp N3  &trans  &trans
-                                                     &trans                &trans                &trans         &trans  &trans
-                                                                           &trans                &trans         &trans
+&trans          &trans           &trans              &trans                 &trans                &trans               &trans  &trans  &trans  &trans  &trans  &trans
+&trans          &DOBLE_TECLA_LT  &DOBLE_TECLA_BRACE  &DOBLE_TECLA_BRACKET   &DOBLE_TECLA_PARENTH  &trans               &trans  &kp N7  &kp N8  &kp N9  &trans  &trans
+&sk LEFT_SHIFT  &kp PERCENT      &kp LS(N7)          &kp LS(RIGHT_BRACKET)  &kp SLASH             &kp RIGHT_BRACKET    &trans  &kp N4  &kp N5  &kp N6  &trans  &trans
+&trans          &kp NON_US_HASH  &kp LS(N4)          &kp RA(N1)             &kp LS(N6)            &kp RA(Q)            &trans  &kp N1  &kp N2  &kp N3  &trans  &trans
+                                                     &trans                 &trans                &trans               &trans  &trans
+                                                                            &trans                &trans               &trans
             >;
         };
 
