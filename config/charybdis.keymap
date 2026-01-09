@@ -226,7 +226,7 @@
             #binding-cells = <0>; // Sin argumentos
             #trackball-binding-cells = <0>; // Requerido por el fork Charybdis
             binding = <&msc>; 
-            input-processors = <&zip_xy_scaler 1 24>, <&zip_scroll_mapper>;
+            input-processors = <&zip_xy_scaler 1 24>, <&zip_xy_to_scroll_mapper>;
         };
     };
 
