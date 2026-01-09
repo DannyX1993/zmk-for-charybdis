@@ -142,24 +142,28 @@
     /* MACROS */
     macros {
         macro_arrow_func: macro_arrow_func {
+            label = "ARROW_FUNC";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp ES_EQUAL &kp ES_GRTR &kp SPACE>;
         };
 
         macro_thin_arrow: macro_thin_arrow {
+            label = "THIN_ARROW";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp ES_MINUS &kp ES_GRTR>;
         };
 
         macro_sys_debug: macro_sys_debug {
+            label = "SYS_DEBUG";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp S &kp Y &kp S &kp T &kp E &kp M &kp ES_DOT &kp D &kp E &kp B &kp U &kp G &kp ES_LPAR &kp ES_RPAR &kp ES_SCLN &kp LEFT &kp LEFT>;
         };
 
         swapper: swapper {
+            label = "ALT_TAB_SWAPPER";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
