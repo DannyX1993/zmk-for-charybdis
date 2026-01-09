@@ -224,13 +224,13 @@
         // Si el divisor es muy bajo (1/10), el scroll vuela.
         // Si es alto (1/40), es muy preciso pero lento.
         // zip_scroll_transform convierte movimiento XY a Scroll.
-        tmv_scroll: trackball_scroll_fine {
+        /*tmv_scroll: trackball_scroll_fine {
             compatible = "zmk,behavior-input-two-axis";
             #binding-cells = <0>;
             #trackball-binding-cells = <0>; // Requerido por el fork Charybdis
             binding = <&msc>; 
             input-processors = <&zip_xy_scaler 1 24>, <&zip_xy_to_scroll_mapper>;
-        };
+        };*/
     };
 
     /* KEYMAP */
@@ -308,7 +308,8 @@
                             &mkp LCLK    &mkp RCLK    &trans               &trans       &trans
                                          &trans       &trans               &trans
             >;
-            trackball-bindings = <&tmv_scroll>;
+            /*trackball-bindings = <&tmv_scroll>;*/
+            trackball-bindings = <&tmv_fine>;
         };
 
         // ------------------------------------------------------------------------------------------------------
