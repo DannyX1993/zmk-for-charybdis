@@ -6,16 +6,6 @@
 #include <dt-bindings/zmk/input_transform.h>
 #include <dt-bindings/zmk/outputs.h>
 
-/* DEFINICIONES DE HARDWARE */
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1500 // Sensibilidad del trackball
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 20 // Velocidad scroll
-
-// --- MANUAL INPUT DEFINITIONS (Safe for all forks) ---
-// Definimos los códigos hexadecimales directos para evitar errores de headers faltantes
-//#define INPUT_EV_REL       0x02
-//#define INPUT_REL_WHEEL    0x08
-//#define INPUT_REL_HWHEEL   0x06
-
 /* Definimos capas por nombre por claridad */
 #define DVORAK 0
 //#define QWERTY 1
@@ -212,7 +202,7 @@
         };
 
         /* TRACKBALL: MOVIMIENTO CURSOR */
-        mmv: mouse_move_behavior {
+        mmv_input: mouse_move_input_behavior {
             compatible = "zmk,input-behavior-listener";
             device = <&trackball>;
             layers = <DVORAK NAV SYM NUM FUN>;
@@ -226,7 +216,7 @@
         };
 
         /* TRACKBALL: SCROLL */
-        msc: mouse_control_behavior {
+        msc_input: mouse_control_input_behavior {
             compatible = "zmk,input-behavior-listener";
             device = <&trackball>;
             layers = <MOUSE>;
