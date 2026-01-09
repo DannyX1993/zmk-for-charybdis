@@ -223,9 +223,10 @@
         // zip_scroll_transform convierte movimiento XY a Scroll.
         tmv_scroll: trackball_scroll_fine {
             compatible = "zmk,behavior-input-two-axis";
-            #binding-cells = <1>;
-            binding = <&msc>;
-            input-processors = <&zip_xy_scaler 1 24>, <&zip_xy_to_scroll_mapper>;
+            #binding-cells = <0>; // Sin argumentos
+            #trackball-binding-cells = <0>; // Requerido por el fork Charybdis
+            binding = <&msc>; 
+            input-processors = <&zip_xy_scaler 1 24>, <&zip_scroll_mapper>;
         };
     };
 
