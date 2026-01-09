@@ -115,19 +115,18 @@
         macro_arrow_func: macro_arrow_func {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp ES_EQUAL &kp ES_GRTR &kp SPACE>; // => 
+            bindings = <&kp ES_EQUAL &kp ES_GRTR &kp SPACE>;
         };
 
         macro_thin_arrow: macro_thin_arrow {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp ES_MINUS &kp ES_GRTR>; // ->
+            bindings = <&kp ES_MINUS &kp ES_GRTR>;
         };
 
         macro_sys_debug: macro_sys_debug {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            // System.debug();
             bindings = <&kp S &kp Y &kp S &kp T &kp E &kp M &kp ES_DOT &kp D &kp E &kp B &kp U &kp G &kp ES_LPAR &kp ES_RPAR &kp ES_SCLN &kp LEFT &kp LEFT>;
         };
 
