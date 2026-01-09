@@ -63,8 +63,6 @@
         /* El error pide explícitamente estas propiedades, se las damos: */
         zephyr,axis-x = <0>;
         zephyr,axis-y = <1>;
-		// Resolucion
-		cpi = <600>; // Resolucion DPI
 		// Pin de interrupcion
         motion-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         // Ajuste fino para el sensor PMW3610
