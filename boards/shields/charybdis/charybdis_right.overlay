@@ -57,9 +57,18 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
 		// Definición de ejes
-		evt-type = <INPUT_EV_REL>;
+		/*evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
-        y-input-code = <INPUT_REL_Y>;
+        y-input-code = <INPUT_REL_Y>;*/
+		/* --- SOLUCIÓN FUERZA BRUTA --- */
+        /* evt-type: INPUT_EV_REL (0x02) */
+        evt-type = <2>;
+        
+        /* x-input-code: INPUT_REL_X (0x00) */
+        x-input-code = <0>;
+        
+        /* y-input-code: INPUT_REL_Y (0x01) */
+        y-input-code = <1>;
 		// Resolucion
 		cpi = <600>; // Resolucion DPI
 		// Pin de interrupcion
