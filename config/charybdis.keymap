@@ -20,37 +20,40 @@
 
 // --- SPANISH OS KEY DEFINITIONS (Mapeo HID para OS en Español) ---
 // Símbolos estándar
-#define ES_NTILDE   SEMI        // Ñ está en la tecla ; (US)
-#define ES_ACUT     SQT        // Tilde ´ está en la tecla ' (US)
-#define ES_PLUS     RBKT        // + está en ] (US)
-#define ES_ASTR     LS(RBKT)    // * está en Shift + ] (US)
-#define ES_LBRC     RA(LBKT)    // [ es AltGr + ` (tecla al lado de P)
-#define ES_RBRC     RA(RBKT)    // ] es AltGr + + (tecla al lado de [)
-#define ES_LCBR     RA(SQT)    // { es AltGr + ' (tecla al lado de Ñ)
-#define ES_RCBR     RA(BSLH)    // } es AltGr + ç (tecla al lado de { o Enter)
-#define ES_LPAR     LS(N8)      // (
-#define ES_RPAR     LS(N9)      // )
-#define ES_EQUAL    LS(N0)      // =
-#define ES_MINUS    FSLH        // - está en la tecla / (US, al lado de R-Shift)
-#define ES_UNDER    LS(FSLH)    // _
-#define ES_SLASH    LS(N7)      // /
-#define ES_BSLH     RA(GRAVE)   // \ está en la tecla º (al lado del 1)
-#define ES_PIPE     RA(N1)      // |
-#define ES_AT       RA(N2)      // @
-#define ES_HASH     RA(N3)      // #
-#define ES_DLLR     LS(N4)      // $
-#define ES_PRCNT    LS(N5)      // %
-#define ES_AMPS     LS(N6)      // &
+#define ES_NTILDE   SEMICOLON        // Ñ (Tecla ; en US)
+#define ES_ACUT     SINGLE_QUOTE     // Tilde ´ (Tecla ' en US)
+#define ES_PLUS     RIGHT_BRACKET    // + (Tecla ] en US)
+#define ES_ASTR     LS(RIGHT_BRACKET)// *
+#define ES_LBRC     RA(LEFT_BRACKET) // [
+#define ES_RBRC     RA(RIGHT_BRACKET)// ]
+#define ES_LCBR     RA(SINGLE_QUOTE) // { (AltGr + ' en ES)
+#define ES_RCBR     RA(BACKSLASH)    // } (AltGr + Ç en ES)
+#define ES_LPAR     LS(N8)           // (
+#define ES_RPAR     LS(N9)           // )
+#define ES_EQUAL    LS(N0)           // =
+#define ES_MINUS    SLASH            // - (Tecla / en US)
+#define ES_UNDER    LS(SLASH)        // _
+#define ES_SLASH    LS(N7)           // /
+#define ES_BSLH     RA(GRAVE)        // \ (AltGr + º)
+#define ES_PIPE     RA(N1)           // |
+#define ES_AT       RA(N2)           // @
+#define ES_HASH     RA(N3)           // #
+#define ES_DLLR     LS(N4)           // $
+#define ES_PRCNT    LS(N5)           // %
+#define ES_AMPS     LS(N6)           // &
 #define ES_LESS     NUBS      // < (Tecla ISO al lado de Z)
 #define ES_GRTR     LS(NUBS)  // >
-#define ES_QUOT     LS(N2)      // "
-#define ES_SQUOT    MINUS       // ' está en la tecla - (US, al lado del 0)
-#define ES_QMARK    LS(MINUS)   // ?
-#define ES_EXCL     LS(N1)      // !
-#define ES_DOT      DOT         // .
-#define ES_COMMA    COMMA       // ,
-#define ES_COLON    LS(DOT)     // :
-#define ES_SCLN     LS(COMMA)   // ;
+#define ES_QUOT     LS(N2)           // "
+#define ES_SQUOT    MINUS            // ' (Comilla simple en tecla - US)
+#define ES_QMARK    LS(MINUS)        // ?
+#define ES_EXCL     LS(N1)           // !
+#define ES_DOT      DOT              // .
+#define ES_COMMA    COMMA            // ,
+#define ES_COLON    LS(DOT)          // :
+#define ES_SCLN     LS(COMMA)        // ;
+#define ES_TILD     RA(N4)           // ~
+#define ES_CIRC     LS(LEFT_BRACKET) // ^ (Shift + ` en ES)
+#define ES_GRV      LEFT_BRACKET     // ` (Tecla ` en ES, que es [ en US)
 
 &lt {
     quick-tap-ms = <200>;
