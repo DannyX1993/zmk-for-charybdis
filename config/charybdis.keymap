@@ -54,11 +54,11 @@
 
 &lt {
     quick-tap-ms = <200>;
-}
+};
 
 &caps_word {
     continue-list = <UNDERSCORE MINUS BACKSPACE>;
-}
+};
 
 / {
     /* COMBOS */
