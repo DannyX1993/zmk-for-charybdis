@@ -69,6 +69,10 @@
         
         /* y-input-code: INPUT_REL_Y (0x01) */
         y-input-code = <1>;
+		/* --- EL PARCHE PARA ZEPHYR 4.1.0 --- */
+        /* El error pide explícitamente estas propiedades, se las damos: */
+        zephyr,axis-x = <0>;
+        zephyr,axis-y = <1>;
 		// Resolucion
 		cpi = <600>; // Resolucion DPI
 		// Pin de interrupcion
