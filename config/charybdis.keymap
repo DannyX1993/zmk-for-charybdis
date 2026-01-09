@@ -47,8 +47,8 @@
 #define ES_DLLR     LS(N4)           // $
 #define ES_PRCNT    LS(N5)           // %
 #define ES_AMPS     LS(N6)           // &
-#define ES_LESS     NUBS      // < (Tecla ISO al lado de Z)
-#define ES_GRTR     LS(NUBS)  // >
+#define ES_LESS     NUBS             // < (Tecla ISO al lado de Z)
+#define ES_GRTR     LS(NUBS)         // >
 #define ES_QUOT     LS(N2)           // "
 #define ES_SQUOT    MINUS            // ' (Comilla simple en tecla - US)
 #define ES_QMARK    LS(MINUS)        // ?
@@ -309,7 +309,8 @@
                                          &trans       &trans               &trans
             >;
             /*trackball-bindings = <&tmv_scroll>;*/ 
-            trackball-bindings = <&tmv_fine>;
+            //trackball-bindings = <&tmv_fine>;
+            trackball-bindings = <&tsl>;
         };
 
         // ------------------------------------------------------------------------------------------------------
@@ -325,6 +326,22 @@
     &trans     &kp ES_EXCL  &kp ES_AT    &kp ES_HASH  &kp ES_DLLR  &kp ES_PRCNT         &kp ES_LESS  &kp ES_GRTR  &kp ES_LBRC  &kp ES_RBRC &kp ES_UNDER    &trans
     &trans     &kp ES_BSLH  &kp ES_PIPE  &kp ES_AMPS  &macro_thin_arrow &macro_arrow_func &kp ES_LPAR  &kp ES_RPAR  &kp ES_LCBR  &kp ES_RCBR &kp ES_EQUAL    &trans
     &trans     &kp ES_TILD  &kp ES_CIRC  &kp ES_GRV   &kp ES_SQUOT &trans               &kp ES_PLUS  &kp ES_MINUS &kp ES_ASTR  &kp ES_SLASH &kp ES_QUOT    &trans
+    
+                            &trans       &trans       &trans               &trans       &trans
+                                         &trans       &trans               &trans
+            >;
+        };
+
+        // ------------------------------------------------------------------------------------------------------
+        // LAYER 5: NUM
+        // ------------------------------------------------------------------------------------------------------
+        num_layer {
+            label = "NUM";
+            bindings = <
+    &trans     &trans       &trans       &trans       &trans       &trans               &trans       &kp N7       &kp N8       &kp N9      &trans          &trans
+    &trans     &trans       &trans       &trans       &trans       &trans               &trans       &kp N4       &kp N5       &kp N6      &trans          &trans
+    &trans     &trans       &trans       &trans       &trans       &trans               &trans       &kp N1       &kp N2       &kp N3      &trans          &trans
+    &trans     &trans       &trans       &trans       &trans       &trans               &kp N0       &kp N0       &kp ES_DOT   &trans      &trans          &trans
     
                             &trans       &trans       &trans               &trans       &trans
                                          &trans       &trans               &trans
