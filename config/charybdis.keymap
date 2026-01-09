@@ -21,12 +21,12 @@
 // --- SPANISH OS KEY DEFINITIONS (Mapeo HID para OS en Español) ---
 // Símbolos estándar
 #define ES_NTILDE   SEMI        // Ñ está en la tecla ; (US)
-#define ES_ACUT     APOS        // Tilde ´ está en la tecla ' (US)
+#define ES_ACUT     SQT        // Tilde ´ está en la tecla ' (US)
 #define ES_PLUS     RBKT        // + está en ] (US)
 #define ES_ASTR     LS(RBKT)    // * está en Shift + ] (US)
 #define ES_LBRC     RA(LBKT)    // [ es AltGr + ` (tecla al lado de P)
 #define ES_RBRC     RA(RBKT)    // ] es AltGr + + (tecla al lado de [)
-#define ES_LCBR     RA(APOS)    // { es AltGr + ' (tecla al lado de Ñ)
+#define ES_LCBR     RA(SQT)    // { es AltGr + ' (tecla al lado de Ñ)
 #define ES_RCBR     RA(BSLH)    // } es AltGr + ç (tecla al lado de { o Enter)
 #define ES_LPAR     LS(N8)      // (
 #define ES_RPAR     LS(N9)      // )
@@ -41,8 +41,8 @@
 #define ES_DLLR     LS(N4)      // $
 #define ES_PRCNT    LS(N5)      // %
 #define ES_AMPS     LS(N6)      // &
-#define ES_LESS     NON_US_BSLASH      // < (Tecla ISO al lado de Z)
-#define ES_GRTR     LS(NON_US_BSLASH)  // >
+#define ES_LESS     NUBS      // < (Tecla ISO al lado de Z)
+#define ES_GRTR     LS(NUBS)  // >
 #define ES_QUOT     LS(N2)      // "
 #define ES_SQUOT    MINUS       // ' está en la tecla - (US, al lado del 0)
 #define ES_QMARK    LS(MINUS)   // ?
