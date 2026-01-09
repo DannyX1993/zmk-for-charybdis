@@ -256,7 +256,7 @@
         // ------------------------------------------------------------------------------------------------------
         // LAYER 1: QWERTY
         // ------------------------------------------------------------------------------------------------------
-        QWERTY {
+        /*QWERTY {
             bindings = <
     &kp ESC         &kp N1          &kp N2  &kp N3          &kp N4     &kp N5      &kp N6          &kp N7          &kp N8          &kp N9            &to 0                   &kp BACKSPACE
     &kp TAB         &kp Q           &kp W   &DOBLE_TECLA_E  &kp R      &kp T       &kp Y           &DOBLE_TECLA_U  &DOBLE_TECLA_I  &DOBLE_TECLA_O    &kp P                   &kp BSLH
@@ -268,7 +268,7 @@
 
             trackball-bindings = <&tmv_coarse>;
             label = "QWERTY";
-        };
+        };*/
 
         // ------------------------------------------------------------------------------------------------------
         // LAYER 2: NAV
