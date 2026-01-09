@@ -281,7 +281,7 @@
         // ------------------------------------------------------------------------------------------------------
         // LAYER 2: NAV
         // ------------------------------------------------------------------------------------------------------
-        nav_layer {
+        NAV {
             label = "NAV";
             bindings = <
     &trans     &trans       &trans       &trans       &trans       &trans               &trans       &trans       &trans       &trans      &trans          &trans
@@ -297,7 +297,7 @@
         // ------------------------------------------------------------------------------------------------------
         // LAYER 3: MOUSE (Scroll)
         // ------------------------------------------------------------------------------------------------------
-        mouse_layer {
+        MOUSE {
             label = "MOUSE";
             bindings = <
     &trans     &trans       &trans       &trans       &trans       &trans               &trans       &trans       &trans       &trans      &trans          &trans
@@ -318,7 +318,7 @@
         // Left:  Lógica y Sigils (! @ # $ % / Logic)
         // Right: Sintaxis y Estructura ( () {} [] <> Math )
         // ------------------------------------------------------------------------------------------------------
-        sym_layer {
+        SYM {
             label = "SYM";
             bindings = <
     &trans     &trans       &trans       &trans       &trans       &trans               &trans       &trans       &trans       &trans      &trans          &trans
@@ -334,7 +334,7 @@
         // ------------------------------------------------------------------------------------------------------
         // LAYER 6: FUN
         // ------------------------------------------------------------------------------------------------------
-        fun_layer {
+        FUN {
             label = "FUN";
             bindings = <
     &bootloader &trans      &trans       &trans       &trans       &trans               &trans       &trans       &trans       &trans      &trans          &bootloader
