@@ -254,9 +254,9 @@
     &caps_word &hm LGUI A  &hm LALT O  &hm LCTRL E  &hm LSHIFT U &kp I                &kp D        &hm RSHIFT H &hm RCTRL T  &hm RALT N  &hm RGUI S      &kp ES_ACUT
     &kp LSHFT  &td_scln       &kp Q       &kp J        &kp K        &kp X                &kp B        &kp M        &kp W        &kp V       &kp Z           &kp RSHFT
     
-                            // CLUSTER IZQUIERDO                        // CLUSTER DERECHO
-                            &mkp LCLK   &mkp RCLK     &tb_scroll MOUSE MOUSE    &lt SYM SPACE   &mo NUM
-                                        &lt NAV SPACE &kp BSPC                  &lt FUN ENTER 
+                            // CLUSTER IZQUIERDO                                         // CLUSTER DERECHO
+                            &mkp LCLK   &mkp RCLK      &tb_scroll MOUSE MOUSE            &lt SYM SPACE   &mo NUM
+                                        &lt NAV SPACE  &kp BSPC                          &lt FUN ENTER 
             >;
             trackball-bindings = <&tmv_coarse>; 
         };
@@ -270,8 +270,8 @@
     &kp TAB         &kp Q           &kp W   &DOBLE_TECLA_E  &kp R      &kp T       &kp Y           &DOBLE_TECLA_U  &DOBLE_TECLA_I  &DOBLE_TECLA_O    &kp P                   &kp BSLH
     &kt LEFT_SHIFT  &DOBLE_TECLA_A  &kp S   &kp D           &kp F      &kp G       &kp H           &kp J           &kp K           &kp L             &DOBLE_TECLA_SEMICOLON  &kp SQT
     &kp LEFT_GUI    &kp Z           &kp X   &kp C           &kp V      &kp B       &DOBLE_TECLA_N  &kp M           &kp COMMA       &kp LEFT_BRACKET  &kp FSLH                &kp MINUS
-                                        &kp LCTRL       &kp SPACE  &mo 3       &kp LALT        &kp GRAVE
-                                                        &mkp MB1   &mkp MB2    &kp ENTER
+                                        &kp LCTRL       &kp SPACE  &mo 3           &kp LALT        &kp GRAVE
+                                                        &mkp MB1   &mkp MB2        &kp ENTER
             >;
 
             trackball-bindings = <&tmv_coarse>;
@@ -284,13 +284,13 @@
         NAV {
             label = "NAV";
             bindings = <
-    &trans     &trans       &trans       &trans       &trans       &trans               &trans       &trans       &trans       &trans      &trans          &trans
-    &swapper   &trans       &trans       &trans       &trans       &trans               &kp HOME     &kp PG_DN    &kp PG_UP    &kp END     &trans          &trans
-    &trans     &kp LGUI     &kp LALT     &kp LCTRL    &kp LSHIFT   &trans               &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT   &trans          &trans
-    &trans     &kp LC(Z)    &kp LC(X)    &kp LC(C)    &kp LC(V)    &kp LC(Y)            &trans       &trans       &trans       &trans      &trans          &trans
+    &trans     &trans       &trans       &trans       &trans       &trans               &kp HOME      &kp LC(T)     &kp LC(LS(TAB)) &kp LC(W)      &kp LC(LS(T))   &none
+    &swapper   &trans       &trans       &trans       &trans       &trans               &kp END       &none         &kp UP          &none          &none           &none
+    &trans     &kp LGUI     &kp LALT     &kp LCTRL    &kp LSHIFT   &trans               &none         &kp LEFT      &kp DOWN        &kp RIGHT      &none           &kp PG_UP
+    &trans     &kp LC(Z)    &kp LC(X)    &kp LC(C)    &kp LC(V)    &kp LC(Y)            &kp LG(LEFT)  &kp LC(LEFT)  &kp LC(TAB)     &kp LC(RIGHT)  &kp LG(RIGHT)   &kp PG_DN
     
-                            &trans       &trans       &trans               &trans       &trans
-                                         &trans       &kp DEL              &trans
+                            &none       &none       &none                                 &none       &none
+                                        &none       &none                                 &kp DEL
             >;
         };
 
