@@ -5,7 +5,6 @@
  */
  
 #include "charybdis.dtsi"
-#include <zephyr/dt-bindings/input/input-event-codes.h>
 
 &default_transform {
     col-offset = <6>;
@@ -60,15 +59,6 @@
 		/*evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;*/
-		/* --- SOLUCIÓN FUERZA BRUTA --- */
-        /* evt-type: INPUT_EV_REL (0x02) */
-        evt-type = <2>;
-        
-        /* x-input-code: INPUT_REL_X (0x00) */
-        x-input-code = <0>;
-        
-        /* y-input-code: INPUT_REL_Y (0x01) */
-        y-input-code = <1>;
 		/* --- EL PARCHE PARA ZEPHYR 4.1.0 --- */
         /* El error pide explícitamente estas propiedades, se las damos: */
         zephyr,axis-x = <0>;
