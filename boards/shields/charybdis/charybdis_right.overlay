@@ -5,6 +5,7 @@
  */
  
 #include "charybdis.dtsi"
+#include <dt-bindings/input/input-event-codes.h>
 
 &default_transform {
     col-offset = <6>;
@@ -55,6 +56,9 @@
         compatible = "pixart,pmw3610";
         reg = <0>;
         spi-max-frequency = <2000000>;
+		evt-type = <INPUT_EV_REL>;
+        x-input-code = <INPUT_REL_X>;
+        y-input-code = <INPUT_REL_Y>;
         motion-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         /* Ajuste fino para el sensor PMW3610 */
         smart-algorithm; 
