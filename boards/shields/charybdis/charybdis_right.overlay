@@ -65,7 +65,5 @@
         zephyr,axis-y = <1>;
 		// Pin de interrupcion
         motion-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        // Ajuste fino para el sensor PMW3610
-        smart-algorithm; 
     };
 };
