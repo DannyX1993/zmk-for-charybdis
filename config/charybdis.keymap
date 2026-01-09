@@ -9,6 +9,12 @@
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1500 // Sensibilidad del trackball
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 20 // Velocidad scroll
 
+// --- MANUAL INPUT DEFINITIONS (Safe for all forks) ---
+// Definimos los códigos hexadecimales directos para evitar errores de headers faltantes
+#define INPUT_EV_REL       0x02
+#define INPUT_REL_WHEEL    0x08
+#define INPUT_REL_HWHEEL   0x06
+
 /* Definimos capas por nombre por claridad */
 #define DVORAK 0
 #define QWERTY 1
