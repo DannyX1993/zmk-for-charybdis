@@ -79,12 +79,15 @@
     zip_xy_scaler: zip_xy_scaler {
         compatible = "zmk,input-processor-scaler";
         #input-processor-cells = <2>;
+        label = "ZIP_XY_SCALER";
+        #binding-cells = <2>; // Fix para validación
     };
 
     // 2. Transformador: Convierte movimiento XY en Scroll Vertical/Horizontal
     zip_xy_to_scroll_mapper: zip_xy_to_scroll_mapper {
         compatible = "zmk,input-processor-transform";
         #input-processor-cells = <0>;
+        label = "ZIP_SCROLL_MAPPER";
         type = <INPUT_EV_REL>;
         x-codes = <INPUT_REL_HWHEEL>; // Movimiento X -> Scroll Horizontal
         y-codes = <INPUT_REL_WHEEL>;  // Movimiento Y -> Scroll Vertical
@@ -223,7 +226,7 @@
         // zip_scroll_transform convierte movimiento XY a Scroll.
         tmv_scroll: trackball_scroll_fine {
             compatible = "zmk,behavior-input-two-axis";
-            #binding-cells = <0>; // Sin argumentos
+            #binding-cells = <0>;
             #trackball-binding-cells = <0>; // Requerido por el fork Charybdis
             binding = <&msc>; 
             input-processors = <&zip_xy_scaler 1 24>, <&zip_xy_to_scroll_mapper>;
