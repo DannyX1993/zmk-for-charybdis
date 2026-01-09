@@ -17,12 +17,12 @@
 
 /* Definimos capas por nombre por claridad */
 #define DVORAK 0
-#define QWERTY 1
-#define NAV 2
-#define MOUSE 3
-#define SYM 4
-#define NUM 5
-#define FUN 6
+//#define QWERTY 1
+#define NAV 1
+#define MOUSE 2
+#define SYM 3
+#define NUM 4
+#define FUN 5
 
 // --- SPANISH OS KEY DEFINITIONS (Mapeo HID para OS en Español) ---
 // Símbolos estándar
@@ -253,9 +253,9 @@
     &kp TAB    &kp ES_MINUS &kp ES_COMMA &kp ES_DOT &kp P        &kp Y                &kp F        &kp G        &kp C        &kp R       &kp L           &kp ES_SLASH
     &caps_word &hm LGUI A  &hm LALT O  &hm LCTRL E  &hm LSHIFT U &kp I                &kp D        &hm RSHIFT H &hm RCTRL T  &hm RALT N  &hm RGUI S      &kp ES_ACUT
     &kp LSHFT  &td_scln       &kp Q       &kp J        &kp K        &kp X                &kp B        &kp M        &kp W        &kp V       &kp Z           &kp RSHFT
-    
+     hthbwmb
                             // CLUSTER IZQUIERDO                        // CLUSTER DERECHO
-                            &mkp LCLK   &mkp RCLK     &tb_scroll MOUSE MOUSE    &lt SYM SPACE   &mo NUM
+                            &mkp LCLK   &mkp RCLK     &tb_scroll MOUSE MOUSE      &lt SYM SPACE   &mo NUM
                                         &lt NAV SPACE &kp BSPC                  &lt FUN ENTER 
             >;
             trackball-bindings = <&tmv_coarse>; 
@@ -308,7 +308,7 @@
                             &mkp LCLK    &mkp RCLK    &trans               &trans       &trans
                                          &trans       &trans               &trans
             >;
-            /*trackball-bindings = <&tmv_scroll>;*/
+            /*trackball-bindings = <&tmv_scroll>;*/ 
             trackball-bindings = <&tmv_fine>;
         };
 
