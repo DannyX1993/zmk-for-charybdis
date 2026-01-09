@@ -64,6 +64,26 @@
 };
 
 / {
+
+    /* DEFINICIÓN MANUAL DE PROCESADORES DE INPUT 
+     * Esto soluciona el error "undefined node label 'zip_xy_scaler'"
+     */
+    
+    // 1. Escalador: Permite multiplicar/dividir la señal del trackball (para sensibilidad)
+    zip_xy_scaler: zip_xy_scaler {
+        compatible = "zmk,input-processor-scaler";
+        #input-processor-cells = <2>;
+    };
+
+    // 2. Transformador: Convierte movimiento XY en Scroll Vertical/Horizontal
+    zip_scroll_mapper: zip_scroll_mapper {
+        compatible = "zmk,input-processor-transform";
+        #input-processor-cells = <0>;
+        type = <INPUT_EV_REL>;
+        x-codes = <INPUT_REL_HWHEEL>; // Movimiento X -> Scroll Horizontal
+        y-codes = <INPUT_REL_WHEEL>;  // Movimiento Y -> Scroll Vertical
+    };
+
     /* COMBOS */
     combos {
         compatible = "zmk,combos";
