@@ -3,6 +3,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/input_transform.h>
 #include <dt-bindings/zmk/outputs.h>
 
 /* DEFINICIONES DE HARDWARE */
@@ -11,9 +12,9 @@
 
 // --- MANUAL INPUT DEFINITIONS (Safe for all forks) ---
 // Definimos los códigos hexadecimales directos para evitar errores de headers faltantes
-#define INPUT_EV_REL       0x02
-#define INPUT_REL_WHEEL    0x08
-#define INPUT_REL_HWHEEL   0x06
+//#define INPUT_EV_REL       0x02
+//#define INPUT_REL_WHEEL    0x08
+//#define INPUT_REL_HWHEEL   0x06
 
 /* Definimos capas por nombre por claridad */
 #define DVORAK 0
@@ -76,7 +77,7 @@
      */
     
     // 1. Escalador: Permite multiplicar/dividir la señal del trackball (para sensibilidad)
-    zip_xy_scaler: zip_xy_scaler {
+    /*zip_xy_scaler: zip_xy_scaler {
         compatible = "zmk,input-processor-scaler";
         #input-processor-cells = <2>;
         label = "ZIP_XY_SCALER";
@@ -91,7 +92,7 @@
         type = <INPUT_EV_REL>;
         x-codes = <INPUT_REL_HWHEEL>; // Movimiento X -> Scroll Horizontal
         y-codes = <INPUT_REL_WHEEL>;  // Movimiento Y -> Scroll Vertical
-    };
+    };*/
 
     /* COMBOS */
     combos {
@@ -210,27 +211,64 @@
             bindings = <&mo>, <&tog>;
         };
 
-        // COMPORTAMIENTO DEL TRACKBALL: CURSOR
-        // MOVIMIENTO ESTANDAR 1:1
-        /*tmv_coarse: trackball_move_coarse {
-            compatible = "zmk,behavior-input-two-axis";
-            #binding-cells = <1>;
-            binding = <&mmv>;
-            input-processors = <&zip_xy_scaler 1 1>; // Escala natural
+        /* TRACKBALL: MOVIMIENTO CURSOR */
+        mmv: mouse_move_behavior {
+            compatible = "zmk,input-behavior-listener";
+            device = <&trackball>;
+            layers = <DVORAK NAV SYM NUM FUN>;
+            evt-type = <INPUT_EV_REL>;
+            x-input-code = <INPUT_REL_X>;
+            y-input-code = <INPUT_REL_Y>;
+
+            /* Ajusta esto si el raton se siente muy rápido o lento */
+            scale-multiplier = <1>;
+            scale-divisor = <1>;
+        };
+
+        /* TRACKBALL: SCROLL */
+        msc: mouse_control_behavior {
+            compatible = "zmk,input-behavior-listener";
+            device = <&trackball>;
+            layers = <MOUSE>;
+            evt-type = <INPUT_EV_REL>;
+            x-input-code = <INPUT_REL_HWHEEL>;
+            y-input-code = <INPUT_REL_WHEEL>;
+            y-invert; /* Quitar esto si el scroll va al revés de tu gusto */
+            //scale-multiplier = <1>;
+            //scale-divisor = <2>; /* El truco de la velocidad: 1 = Rapido, 4 = Lento/Preciso */
+            bindings = <&zip_scroll>;
+        };
+
+        /* --- LOS MOTORES DE ACELERACION --- */
+        /* A. Escalador para el cursor (La magia del trackpad) */
+        /*zip_cursor: zip_cursor {
+            compatible = "zmk,input-behavior-scaler";
+            #binding-cells = <2>;
+            evt-type = <INPUT_EV_REL>;
+            track-remainders;
+
+            // CONFIGURACIÓN DE LA CURVA DE VELOCIDAD
+            // ENTRADA (INPUT) = VELOCIDAD DE TU DEDO 
+            // SALIDA (OUTPUT) = VELOCIDAD DEL CURSOR EN PANTALLA
+
+            // ZONA 1: Movimiento lento (precisión)
+            input = <10>; // Si la velocidad es baja (< 10) 
+            output = <5>; // divide la velocidad a la mitad (divisor 2) para precisión
+
+            // ZONA 2: Movimiento rápido (Flickeo)
+
         };*/
 
-        // COMPORTAMIENTO DEL TRACKBALL: SCROLL (Trackpad-like)
-        // Usamos un divisor (1/24 por ejemplo) para que el movimiento sea fluido.
-        // Si el divisor es muy bajo (1/10), el scroll vuela.
-        // Si es alto (1/40), es muy preciso pero lento.
-        // zip_scroll_transform convierte movimiento XY a Scroll.
-        /*tmv_scroll: trackball_scroll_fine {
-            compatible = "zmk,behavior-input-two-axis";
-            #binding-cells = <0>;
-            #trackball-binding-cells = <0>; // Requerido por el fork Charybdis
-            binding = <&msc>; 
-            input-processors = <&zip_xy_scaler 1 24>, <&zip_xy_to_scroll_mapper>;
-        };*/
+        /* B. Escalador para el SCROLL */
+        zip_scroll: zip_scroll {
+            compatible = "zmk,input-behavior-scaler";
+            #binding-cells = <2>;
+            evt-type = <INPUT_EV_REL>;
+            track-remainders;
+
+            input = <20>;
+            output = <1>;
+        };
     };
 
     /* KEYMAP */
@@ -258,7 +296,6 @@
                             &mkp LCLK   &mkp RCLK      &tb_scroll MOUSE MOUSE            &lt SYM SPACE   &mo NUM
                                         &lt NAV SPACE  &kp BSPC                          &lt FUN ENTER 
             >;
-            trackball-bindings = <&tmv_coarse>; 
         };
 
         // ------------------------------------------------------------------------------------------------------
@@ -308,9 +345,6 @@
                             &mkp LCLK    &mkp RCLK    &trans               &trans       &trans
                                          &trans       &trans               &trans
             >;
-            /*trackball-bindings = <&tmv_scroll>;*/ 
-            //trackball-bindings = <&tmv_fine>;
-            trackball-bindings = <&tsl>;
         };
 
         // ------------------------------------------------------------------------------------------------------
