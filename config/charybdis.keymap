@@ -64,7 +64,6 @@
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        layers = <DVORAK NAV>;
     };
 
     /* input config for mouse scroll mode */
