@@ -62,28 +62,6 @@
 
 / {
 
-    /* DEFINICIÓN MANUAL DE PROCESADORES DE INPUT 
-     * Esto soluciona el error "undefined node label 'zip_xy_scaler'"
-     */
-    
-    // 1. Escalador: Permite multiplicar/dividir la señal del trackball (para sensibilidad)
-    /*zip_xy_scaler: zip_xy_scaler {
-        compatible = "zmk,input-processor-scaler";
-        #input-processor-cells = <2>;
-        label = "ZIP_XY_SCALER";
-        #binding-cells = <2>; // Fix para validación
-    };
-
-    // 2. Transformador: Convierte movimiento XY en Scroll Vertical/Horizontal
-    zip_xy_to_scroll_mapper: zip_xy_to_scroll_mapper {
-        compatible = "zmk,input-processor-transform";
-        #input-processor-cells = <0>;
-        label = "ZIP_SCROLL_MAPPER";
-        type = <INPUT_EV_REL>;
-        x-codes = <INPUT_REL_HWHEEL>; // Movimiento X -> Scroll Horizontal
-        y-codes = <INPUT_REL_WHEEL>;  // Movimiento Y -> Scroll Vertical
-    };*/
-
     /* COMBOS */
     combos {
         compatible = "zmk,combos";
@@ -202,7 +180,7 @@
         };
 
         /* TRACKBALL: MOVIMIENTO CURSOR */
-        mmv_input: mouse_move_input_behavior {
+        /*mmv_input: mouse_move_input_behavior {
             compatible = "zmk,input-behavior-listener";
             device = <&trackball>;
             layers = <DVORAK NAV SYM NUM FUN>;
@@ -213,10 +191,10 @@
             /* Ajusta esto si el raton se siente muy rápido o lento */
             scale-multiplier = <1>;
             scale-divisor = <1>;
-        };
+        };*/
 
         /* TRACKBALL: SCROLL */
-        msc_input: mouse_control_input_behavior {
+        /*msc_input: mouse_control_input_behavior {
             compatible = "zmk,input-behavior-listener";
             device = <&trackball>;
             layers = <MOUSE>;
@@ -227,7 +205,7 @@
             //scale-multiplier = <1>;
             //scale-divisor = <2>; /* El truco de la velocidad: 1 = Rapido, 4 = Lento/Preciso */
             bindings = <&zip_scroll>;
-        };
+        };*/
 
         /* --- LOS MOTORES DE ACELERACION --- */
         /* A. Escalador para el cursor (La magia del trackpad) */
@@ -250,7 +228,7 @@
         };*/
 
         /* B. Escalador para el SCROLL */
-        zip_scroll: zip_scroll {
+        /*zip_scroll: zip_scroll {
             compatible = "zmk,input-behavior-scaler";
             #binding-cells = <2>;
             evt-type = <INPUT_EV_REL>;
@@ -258,7 +236,7 @@
 
             input = <20>;
             output = <1>;
-        };
+        };*/
     };
 
     /* KEYMAP */
