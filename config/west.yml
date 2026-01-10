@@ -2,11 +2,9 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: bastardkb
-      url-base: https://github.com/Bastardkb
   projects:
     - name: zmk
-      remote: bastardkb
+      remote: zmkfirmware
       revision: main
       import: app/west.yml
   self:
