@@ -179,6 +179,32 @@
             bindings = <&mo>, <&tog>;
         };
 
+        trackball_listener {
+            compatible = "zmk,input-listener";
+            device = <&trackball>;
+            layers = <DVORAK NAV>;
+        };
+
+        /* input config for mouse scroll mode */
+        trackball_scroll_listener {
+            compatible = "zmk,input-behavior-listener";
+            device = <&trackball>;
+            layers = <MOUSE>;
+            evt-type = <INPUT_EV_REL>;            
+            x-input-code = <INPUT_REL_MISC>;
+            y-input-code = <INPUT_REL_WHEEL>;
+            y-invert;
+            bindings = <&ib_wheel_scaler 1 14>;
+        };
+
+        /* define a resolution down scaler only for INPUT_REL_WHEEL */
+        ib_wheel_scaler: ib_wheel_scaler {
+            compatible = "zmk,input-behavior-scaler";
+            #binding-cells = <2>;
+            evt-type = <INPUT_EV_REL>;
+            input-code = <INPUT_REL_WHEEL>;
+        };
+
     };
 
     /* KEYMAP */
