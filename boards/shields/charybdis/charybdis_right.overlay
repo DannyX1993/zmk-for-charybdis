@@ -1,5 +1,14 @@
 #include "charybdis.dtsi"
 
+/* Definimos capas por nombre por claridad */
+#define DVORAK 0
+//#define QWERTY 1
+#define NAV 1
+#define MOUSE 2
+#define SYM 3
+#define NUM 4
+#define FUN 5
+
 &default_transform {
     col-offset = <6>;
 };
@@ -50,8 +59,15 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        scroll-layers = <4>;
-        snipe-layers = <3>;
+        scroll-layers = <MOUSE>;
+        snipe-layers = <DVORAK NAV>;
       // automouse-layer = <3>;
+    };
+};
+
+/ {
+    trackball_listener {
+        compatible = "zmk,input-listener";
+        device = <&trackball>;
     };
 };
