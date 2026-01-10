@@ -179,64 +179,6 @@
             bindings = <&mo>, <&tog>;
         };
 
-        /* TRACKBALL: MOVIMIENTO CURSOR */
-        /*mmv_input: mouse_move_input_behavior {
-            compatible = "zmk,input-behavior-listener";
-            device = <&trackball>;
-            layers = <DVORAK NAV SYM NUM FUN>;
-            evt-type = <INPUT_EV_REL>;
-            x-input-code = <INPUT_REL_X>;
-            y-input-code = <INPUT_REL_Y>;
-
-            /* Ajusta esto si el raton se siente muy rápido o lento */
-            scale-multiplier = <1>;
-            scale-divisor = <1>;
-        };*/
-
-        /* TRACKBALL: SCROLL */
-        /*msc_input: mouse_control_input_behavior {
-            compatible = "zmk,input-behavior-listener";
-            device = <&trackball>;
-            layers = <MOUSE>;
-            evt-type = <INPUT_EV_REL>;
-            x-input-code = <INPUT_REL_HWHEEL>;
-            y-input-code = <INPUT_REL_WHEEL>;
-            y-invert; /* Quitar esto si el scroll va al revés de tu gusto */
-            //scale-multiplier = <1>;
-            //scale-divisor = <2>; /* El truco de la velocidad: 1 = Rapido, 4 = Lento/Preciso */
-            bindings = <&zip_scroll>;
-        };*/
-
-        /* --- LOS MOTORES DE ACELERACION --- */
-        /* A. Escalador para el cursor (La magia del trackpad) */
-        /*zip_cursor: zip_cursor {
-            compatible = "zmk,input-behavior-scaler";
-            #binding-cells = <2>;
-            evt-type = <INPUT_EV_REL>;
-            track-remainders;
-
-            // CONFIGURACIÓN DE LA CURVA DE VELOCIDAD
-            // ENTRADA (INPUT) = VELOCIDAD DE TU DEDO 
-            // SALIDA (OUTPUT) = VELOCIDAD DEL CURSOR EN PANTALLA
-
-            // ZONA 1: Movimiento lento (precisión)
-            input = <10>; // Si la velocidad es baja (< 10) 
-            output = <5>; // divide la velocidad a la mitad (divisor 2) para precisión
-
-            // ZONA 2: Movimiento rápido (Flickeo)
-
-        };*/
-
-        /* B. Escalador para el SCROLL */
-        /*zip_scroll: zip_scroll {
-            compatible = "zmk,input-behavior-scaler";
-            #binding-cells = <2>;
-            evt-type = <INPUT_EV_REL>;
-            track-remainders;
-
-            input = <20>;
-            output = <1>;
-        };*/
     };
 
     /* KEYMAP */
