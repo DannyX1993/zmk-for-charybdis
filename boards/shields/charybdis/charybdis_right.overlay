@@ -21,7 +21,6 @@
 		;
 };
 
-/* 2. DEFINICIÓN MODERNA DE PINES (PINCTRL) */
 &pinctrl {
     spi0_default: spi0_default {
         group1 {
@@ -41,7 +40,6 @@
     };
 };
 
-/* 3. ACTIVACIÓN DEL TRACKBALL */
 &spi0 {
     status = "okay";
     compatible = "nordic,nrf-spim";
@@ -55,17 +53,10 @@
         compatible = "pixart,pmw3610";
         reg = <0>;
         spi-max-frequency = <2000000>;
-		/* 2048 significa SPI_HALF_DUPLEX (Modo 3 cables) */
-        duplex = <2048>;
-		// Definición de ejes
-		/*evt-type = <INPUT_EV_REL>;
-        x-input-code = <INPUT_REL_X>;
-        y-input-code = <INPUT_REL_Y>;*/
-		/* --- EL PARCHE PARA ZEPHYR 4.1.0 --- */
-        /* El error pide explícitamente estas propiedades, se las damos: */
-        zephyr,axis-x = <0>;
-        zephyr,axis-y = <1>;
-		// Pin de interrupcion
-        motion-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        
+        /* En esta versión estable, estos comandos SÍ funcionan */
+        irq-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        scroll-layers = <2>; /* Opcional, pero ayuda */
+        automouse-layer = <2>;
     };
 };
