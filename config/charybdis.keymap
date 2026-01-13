@@ -179,6 +179,23 @@
             bindings = <&mo>, <&tog>;
         };
 
+        // Tap Dances para Shift
+        td_ls: tap_dance_left_shift {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_LSHIFT";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sk LSHFT>, <&caps_word>;
+        };
+
+        td_rs: tap_dance_right_shift {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_RSHIFT";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sk RSHFT>, <&caps_word>;
+        };
+
     };
 
     /* KEYMAP */
@@ -199,8 +216,8 @@
             bindings = <
     &kp ESC    &kp N1      &kp N2      &kp N3       &kp N4       &kp N5               &kp N6       &kp N7       &kp N8       &kp N9      &kp N0          &kp ES_NTILDE
     &kp TAB    &kp ES_MINUS &kp ES_COMMA &kp ES_DOT &kp P        &kp Y                &kp F        &kp G        &kp C        &kp R       &kp L           &kp ES_SLASH
-    &caps_word &hm LGUI A  &hm LALT O  &hm LCTRL E  &hm LSHIFT U &kp I                &kp D        &hm RSHIFT H &hm RCTRL T  &hm RALT N  &hm RGUI S      &kp ES_ACUT
-    &kp LSHFT  &td_scln       &kp Q       &kp J        &kp K        &kp X                &kp B        &kp M        &kp W        &kp V       &kp Z           &kp RSHFT
+    &td_ls     &hm LGUI A  &hm LALT O  &hm LCTRL E  &hm LSHIFT U &kp I                &kp D        &hm RSHIFT H &hm RCTRL T  &hm RALT N  &hm RGUI S      &kp ES_ACUT
+    &sk LSHFT  &td_scln       &kp Q       &kp J        &kp K        &kp X                &kp B        &kp M        &kp W        &kp V       &kp Z           &sk RSHFT
     
                             // CLUSTER IZQUIERDO                                         // CLUSTER DERECHO
                             &mkp LCLK   &mkp RCLK      &tb_scroll MOUSE MOUSE            &lt SYM SPACE   &mo NUM
@@ -266,13 +283,13 @@
         SYM {
             label = "SYM";
             bindings = <
-    &trans     &trans       &trans       &trans       &trans       &trans               &trans       &trans       &trans       &trans      &trans          &trans
-    &trans     &kp ES_EXCL  &kp ES_AT    &kp ES_HASH  &kp ES_DLLR  &kp ES_PRCNT         &kp ES_LESS  &kp ES_GRTR  &kp ES_LBRC  &kp ES_RBRC &kp ES_UNDER    &trans
-    &trans     &kp ES_BSLH  &kp ES_PIPE  &kp ES_AMPS  &macro_thin_arrow &macro_arrow_func &kp ES_LPAR  &kp ES_RPAR  &kp ES_LCBR  &kp ES_RCBR &kp ES_EQUAL    &trans
-    &trans     &kp ES_TILD  &kp ES_CIRC  &kp ES_GRV   &kp ES_SQUOT &trans               &kp ES_PLUS  &kp ES_MINUS &kp ES_ASTR  &kp ES_SLASH &kp ES_QUOT    &trans
+    &none      &none         &none        &none        &none             &none               &none        &none        &none        &none        &none          &none
+    &none      &kp ES_EXCL   &kp ES_AT    &kp ES_HASH  &kp ES_DLLR       &kp ES_QMARK        &kp ES_PLUS  &kp ES_MINUS &kp ES_ASTR  &kp ES_SLASH &kp ES_PRCNT   &none
+    &none      &kp ES_EQUAL  &kp ES_PIPE  &kp ES_AMPS  &macro_thin_arrow &macro_arrow_func   &kp ES_LPAR  &kp ES_RPAR  &kp ES_LCBR  &kp ES_RCBR  &kp ES_BSLH    &none
+    &kp ES_CIRC &kp ES_UNDER &kp ES_TILD  &kp ES_GRV   &kp ES_SQUOT      &kp ES_QUOT         &kp ES_LBRC  &kp ES_RBRC  &kp ES_LESS  &kp ES_GRTR  &none          &none
     
-                            &trans       &trans       &trans               &trans       &trans
-                                         &trans       &trans               &trans
+                            &none       &none       &none               &none       &none
+                                        &none       &none               &none
             >;
         };
 
