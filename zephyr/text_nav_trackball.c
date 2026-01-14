@@ -4,6 +4,7 @@
 #include <drivers/behavior.h>
 #include <zmk/event_manager.h>
 #include <zmk/events/position_state_changed.h>
+#include <zmk/events/input_event.h>
 #include <zmk/hid.h>
 #include <zmk/endpoints.h>
 #include <zmk/keymap.h>
@@ -38,7 +39,7 @@ int text_nav_listener(const zmk_event_t *eh) {
     const struct zmk_input_event *val = as_zmk_input_event(eh);
 
     // 1. Filtramos eventos que no sean de movimiento relativo
-    if(!val || val->type != INPUT_EV_REL) {
+    if(!val || val->event.type != INPUT_EV_REL) {
         return ZMK_EV_EVENT_BUBBLE;
     }
 
