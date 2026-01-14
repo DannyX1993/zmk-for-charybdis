@@ -1,5 +1,5 @@
 name: zmk_config
 build:
-  cmake: ../config
+  cmake: .
   settings:
     board_root: .
