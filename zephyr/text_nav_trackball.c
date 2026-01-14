@@ -39,7 +39,7 @@ void send_ctrl_key(uint8_t key) {
     zmk_hid_keyboard_release(H_LCTRL);
 }
 
-int text_nav_listener(const zmk_event_t *eh) {
+int text_nav_listener(struct input_event *evt) {
     // 1. Filtrar solo eventos de movimiento relativo (REL)
     if (evt->type != INPUT_EV_REL) {
         return;
