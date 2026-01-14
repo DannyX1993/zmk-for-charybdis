@@ -1,4 +1,4 @@
-
+#error "HOLA! SI LEES ESTO, EL ARCHIVO SE ESTA COMPILANDO"
 #include <zephyr/kernel.h>
 #include <zephyr/device.h>
 #include <zephyr/logging/log.h>
