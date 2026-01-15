@@ -28,30 +28,26 @@ static int16_t y_accum = 0;
 // Helper para enviar teclas simples
 // Envía una tecla simple asegurando que el OS la reciba
 static void tap_key(uint8_t code) {
-    // 1. Pulsar
     zmk_hid_keyboard_press(code);
-    zmk_endpoints_send_report(ZMK_HID_REPORT_ID_KEYBOARD); // ¡Envia YA!
-    
-    // 2. Soltar
+    zmk_endpoints_send_report(ZMK_HID_REPORT_ID_KEYBOARD);
+    k_busy_wait(10000); // Esperar 10ms (Vital para que el OS lo vea)
     zmk_hid_keyboard_release(code);
-    zmk_endpoints_send_report(ZMK_HID_REPORT_ID_KEYBOARD); // ¡Envia YA!
+    zmk_endpoints_send_report(ZMK_HID_REPORT_ID_KEYBOARD);
 }
 
 // Envía Ctrl + Tecla
 static void tap_ctrl_key(uint8_t code) {
-    // 1. Pulsar Ctrl
     zmk_hid_keyboard_press(H_LCTRL);
     zmk_endpoints_send_report(ZMK_HID_REPORT_ID_KEYBOARD);
+    k_busy_wait(5000); // 5ms para asegurar que Ctrl entra antes
     
-    // 2. Pulsar Tecla
     zmk_hid_keyboard_press(code);
     zmk_endpoints_send_report(ZMK_HID_REPORT_ID_KEYBOARD);
+    k_busy_wait(10000); // 10ms hold
     
-    // 3. Soltar Tecla
     zmk_hid_keyboard_release(code);
     zmk_endpoints_send_report(ZMK_HID_REPORT_ID_KEYBOARD);
     
-    // 4. Soltar Ctrl
     zmk_hid_keyboard_release(H_LCTRL);
     zmk_endpoints_send_report(ZMK_HID_REPORT_ID_KEYBOARD);
 }
@@ -112,6 +108,13 @@ static void text_nav_callback(struct input_event *evt) {
             }
         }
     }
+
+    // 4. MAGIA NEGRA: "Consumir" el evento
+    // Al poner estos valores a 0, los siguientes listeners (como el del ratón del overlay)
+    // recibirán un evento "vacío" y no moverán el cursor.
+    evt->type = 0;
+    evt->code = 0;
+    evt->value = 0;
 }
 
 // REGISTRO DEL CALLBACK (Zephyr 3.x / ZMK v0.3)
