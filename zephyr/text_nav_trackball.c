@@ -17,26 +17,43 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 // CÓDIGOS HID (Definidos manualmente para evitar errores de headers faltantes)
 // Keyboard Page (0x07)
 #define H_RIGHT 0x4F
-#define H_LEFT  0x50
+#define H_LEFT  0x50                            
 #define H_DOWN  0x51
 #define H_UP    0x52
 #define H_LCTRL 0xE0
 
 static int16_t x_accum = 0;
 static int16_t y_accum = 0;
-
+ 
 // Helper para enviar teclas simples
-void tap_key(uint8_t key) {
-    zmk_hid_keyboard_press(key);
-    zmk_hid_keyboard_release(key);
+// Envía una tecla simple asegurando que el OS la reciba
+static void tap_key(uint8_t code) {
+    // 1. Pulsar
+    zmk_hid_keyboard_press(code);
+    zmk_endpoints_send_report(ZMK_HID_REPORT_ID_KEYBOARD); // ¡Envia YA!
+    
+    // 2. Soltar
+    zmk_hid_keyboard_release(code);
+    zmk_endpoints_send_report(ZMK_HID_REPORT_ID_KEYBOARD); // ¡Envia YA!
 }
 
-// Helper para enviar Ctrl + Tecla (Saltar palabras)
-void tap_ctrl_key(uint8_t key) {
+// Envía Ctrl + Tecla
+static void tap_ctrl_key(uint8_t code) {
+    // 1. Pulsar Ctrl
     zmk_hid_keyboard_press(H_LCTRL);
-    zmk_hid_keyboard_press(key);
-    zmk_hid_keyboard_release(key);
+    zmk_endpoints_send_report(ZMK_HID_REPORT_ID_KEYBOARD);
+    
+    // 2. Pulsar Tecla
+    zmk_hid_keyboard_press(code);
+    zmk_endpoints_send_report(ZMK_HID_REPORT_ID_KEYBOARD);
+    
+    // 3. Soltar Tecla
+    zmk_hid_keyboard_release(code);
+    zmk_endpoints_send_report(ZMK_HID_REPORT_ID_KEYBOARD);
+    
+    // 4. Soltar Ctrl
     zmk_hid_keyboard_release(H_LCTRL);
+    zmk_endpoints_send_report(ZMK_HID_REPORT_ID_KEYBOARD);
 }
 
 static void text_nav_callback(struct input_event *evt) {
@@ -83,7 +100,7 @@ static void text_nav_callback(struct input_event *evt) {
             for(int i=0; i<5; i++) tap_key(H_UP);
             y_accum = 0;
         } 
-        // Normal (Lento) -> 1 Línea
+        // Normal (Lento) -> 1 Líne
         else {
             y_accum += evt->value;
             if (y_accum > MOVE_THRESHOLD) {
