@@ -26,13 +26,13 @@ static int16_t x_accum = 0;
 static int16_t y_accum = 0;
 
 // Helper para enviar teclas simples
-void send_key(uint8_t key) {
+void tap_key(uint8_t key) {
     zmk_hid_keyboard_press(key);
     zmk_hid_keyboard_release(key);
 }
 
 // Helper para enviar Ctrl + Tecla (Saltar palabras)
-void send_ctrl_key(uint8_t key) {
+void tap_ctrl_key(uint8_t key) {
     zmk_hid_keyboard_press(H_LCTRL);
     zmk_hid_keyboard_press(key);
     zmk_hid_keyboard_release(key);
