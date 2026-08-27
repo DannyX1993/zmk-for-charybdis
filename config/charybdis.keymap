@@ -14,6 +14,7 @@
 #define SYM 3
 #define NUM 4
 #define FUN 5
+#define GAME 6
 
 // --- SPANISH OS KEY DEFINITIONS (Mapeo HID para OS en Español) ---
 // Símbolos estándar
@@ -108,6 +109,14 @@
             key-positions = <3 4>;
             bindings = <&macro_sys_debug>;
             layers = <DVORAK>;
+        };
+
+        // Exit GAME by pressing both top outer corners.
+        combo_game_exit {
+            timeout-ms = <100>;
+            key-positions = <0 11>;
+            bindings = <&to DVORAK>;
+            layers = <GAME>;
         };
     };
 
@@ -316,12 +325,29 @@
             label = "FUN";
             bindings = <
     &bootloader &trans      &trans       &trans       &trans       &trans               &bt BT_CLR_ALL &trans       &trans       &trans      &trans          &bootloader
-    &trans     &kp F12      &kp F7       &kp F8       &kp F9       &trans               &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_CLR   &trans
+    &to GAME   &kp F12      &kp F7       &kp F8       &kp F9       &trans               &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_CLR   &trans
     &trans     &kp F11      &kp F4       &kp F5       &kp F6       &trans               &trans       &trans       &trans       &trans      &trans          &trans
     &trans     &kp F10      &kp F1       &kp F2       &kp F3       &trans               &trans       &trans       &trans       &trans      &trans          &trans
     
                             &trans       &trans       &trans               &trans       &trans
                                          &trans       &trans               &trans
+            >;
+        };
+
+        // ------------------------------------------------------------------------------------------------------
+        // LAYER 6: GAME - RPG action pad with W/S on the left middle finger.
+        // Enter with FUN + physical Tab. Exit by pressing both top outer corners.
+        // ------------------------------------------------------------------------------------------------------
+        GAME {
+            label = "GAME";
+            bindings = <
+    &kp ESC    &kp F1      &kp F2      &kp F3      &kp F4      &kp F10             &kp I       &kp M       &kp J       &kp K       &kp P       &kp ENTER
+    &kp TAB    &kp M       &kp R       &kp W       &kp F       &kp B               &kp N1      &kp N2      &kp N3      &kp N4      &kp N5      &kp F5
+    &kp LSHFT  &kp Q       &kp A       &kp S       &kp D       &kp E               &kp E       &mkp LCLK   &mkp RCLK   &mkp MCLK   &kp LALT    &kp ESC
+    &kp LALT   &kp Z       &kp X       &kp C       &kp V       &kp G               &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &kp F9
+
+                            &kp LALT    &kp LSHFT   &tb_scroll MOUSE MOUSE          &kp TAB     &kp ENTER
+                                        &kp SPACE   &kp LCTRL                       &kp E
             >;
         };
     };
